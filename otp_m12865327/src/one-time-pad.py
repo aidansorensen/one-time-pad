@@ -4,6 +4,7 @@
 
 import random
 import os
+import pathlib
 
 def KeyGen(lamed):
     """
@@ -21,12 +22,12 @@ def KeyGen(lamed):
         newkey += temp
 
     # write key to file named data/newkey.txt
-    save_path = ""
-    with open('C:\\Users\\Aidan\\OneDrive - University of Cincinnati\\otp_m12865327\\data', 'w') as fp:
+    project_path = str(pathlib.Path().resolve())
+    project_path += '\\data'
+    complete_path = os.path.join(project_path, 'key.txt')
+
+    with open(complete_path, 'w') as fp:
         fp.write(newkey)
-    #f = open ("data/key.txt", "x")
-    #f.write(newkey)
-    #f.close
 
     print(f"saved key, {newkey}, to  key.txt in /data folder")
     # next step
